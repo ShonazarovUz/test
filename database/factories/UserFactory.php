@@ -42,3 +42,62 @@ class UserFactory extends Factory
         ]);
     }
 }
+
+// CREATE TABLE users (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     email VARCHAR(255) NOT NULL UNIQUE,
+//     password VARCHAR(255) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// );
+
+// -- Create `categories` table
+// CREATE TABLE categories (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// );
+
+// -- Create `regions` table
+// CREATE TABLE regions (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// );
+
+// -- Create `tags` table
+// CREATE TABLE tags (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+// );
+
+// -- Create `ads` table
+// CREATE TABLE ads (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     user_id BIGINT NOT NULL,
+//     title VARCHAR(255) NOT NULL,
+//     description TEXT NOT NULL,
+//     price DECIMAL(10,2) NOT NULL,
+//     category_id BIGINT NOT NULL,
+//     region_id BIGINT NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+//     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+//     FOREIGN KEY (category_id) REFERENCES categories(id),
+//     FOREIGN KEY (region_id) REFERENCES regions(id)
+// );
+
+// -- Create pivot table `ad_tags`
+// CREATE TABLE ad_tags (
+//     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+//     ad_id BIGINT NOT NULL,
+//     tag_id BIGINT NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     FOREIGN KEY (ad_id) REFERENCES ads(id) ON DELETE CASCADE,
+//     FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+// );
