@@ -9,25 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('ads', function (Blueprint $table){
-            $table->id();
-            $table->integer('user_id');
-            $table->string('title');
-            $table->string('description');
-            $table->decimal('price');
-            $table->integer('category_id');
-            $table->integer('region_id');
-            $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('region_id')->references('id')->on('region')->onDelete('cascade');
-            
-        });
+        if (!Schema::hasTable('ads')) {
+            Schema::create('ads', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('user_id')->constrained()->onDelete('cascade');
+                $table->string('title');
+                $table->string('description');
+                $table->decimal('price', 10, 2);
+                $table->foreignId('category_id')->constrained()->onDelete('cascade');
+                $table->foreignId('region_id')->constrained()->onDelete('cascade');
+                $table->timestamps();
+            });
+        }
     }
-
+    
     /**
      * Reverse the migrations.
      */
