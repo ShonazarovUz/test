@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('ads')) {
             Schema::create('ads', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->constrained()->onDelete('cascade');
                 $table->string('title');
                 $table->string('description');
                 $table->decimal('price', 10, 2);
-                $table->foreignId('category_id')->constrained()->onDelete('cascade');
-                $table->foreignId('region_id')->constrained()->onDelete('cascade');
                 $table->timestamps();
             });
-        }
     }
     
     /**
