@@ -10,8 +10,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdSeeder::class,
-            AdTagSeeder::class, 
-            \Database\Seeders\AdTagSeeder::class,
         ]);
     }
 }
